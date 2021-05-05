@@ -1,0 +1,21 @@
+package com.kajiH.practice0203;
+
+public class ValueType {
+
+	public static void main(String[] args) {
+
+
+
+
+	}
+
+	//practice 1
+	private static void booleanType() {
+		boolean hasElephantLongNose = true;
+		boolean isJapanLargerThanAmerica = false;
+
+		System.out.printf("象の鼻は長いか？ = %b\n", hasElephantLongNose);
+		System.out.printf("日本はアメリカよりも大きいか？ = %b\n", isJapanLargerThanAmerica);
+	}
+
+}

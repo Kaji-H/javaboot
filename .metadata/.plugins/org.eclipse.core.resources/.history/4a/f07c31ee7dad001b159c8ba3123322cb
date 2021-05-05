@@ -1,0 +1,29 @@
+package com.kajiH.practice0203;
+
+public class ValueType {
+
+	public static void main(String[] args) {
+
+		//booleanType();
+		byteType();
+
+	}
+
+	//practice 1
+	private static void booleanType() {
+		boolean hasElephantLongNose = true;
+		boolean isJapanLargerThanAmerica = false;
+
+		System.out.printf("象の鼻は長いか？ = %b\n", hasElephantLongNose);
+		System.out.printf("日本はアメリカよりも大きいか？ = %b\n", isJapanLargerThanAmerica);
+	}
+
+	//practice 2
+	private static void byteType() {
+		byte minByte = -128;
+		byte maxByte = 127;
+		
+		System.out.printf("byte 型の最小値 = %d\n", minByte);
+		System.out.printf("byte 型の最大値 = %d\n", maxByte);
+	}
+}
