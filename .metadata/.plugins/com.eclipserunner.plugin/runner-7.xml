@@ -2,5 +2,6 @@
 <runner version="1.0.0">
     <category expanded="true" name="カテゴリーなし">
         <launchConfiguration bookmark="false" defaultLaunchMode="run" name="main"/>
+        <launchConfiguration bookmark="false" defaultLaunchMode="run" name="DisplayValue"/>
     </category>
 </runner>
