@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <runner version="1.0.0">
     <category expanded="true" name="カテゴリーなし">
+        <launchConfiguration bookmark="false" defaultLaunchMode="run" name="Cast"/>
         <launchConfiguration bookmark="false" defaultLaunchMode="run" name="DisplayValue"/>
+        <launchConfiguration bookmark="false" defaultLaunchMode="run" name="IntOverflow"/>
         <launchConfiguration bookmark="false" defaultLaunchMode="run" name="ReservedWords"/>
         <launchConfiguration bookmark="false" defaultLaunchMode="run" name="ValueType"/>
         <launchConfiguration bookmark="false" defaultLaunchMode="run" name="main"/>
