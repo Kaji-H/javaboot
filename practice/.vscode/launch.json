@@ -1,0 +1,91 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "com.kajiH.main",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch DisplayValue",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0201.DisplayValue",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReservedWords",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0202.ReservedWords",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch ValueType",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0203.ValueType",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch IntOverflow",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0204.IntOverflow",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cast",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0205.Cast",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch DoubtfulNamingRules",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0206.DoubtfulNamingRules",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch GoodVariableName",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0208.GoodVariableName",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch SurvivorChecker",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0209.SurvivorChecker",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch AutoFormatter",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0210.AutoFormatter",
+            "projectName": "practice"
+        },
+        {
+            "type": "java",
+            "name": "Launch QuickFix",
+            "request": "launch",
+            "mainClass": "com.kajiH.practice0211.QuickFix",
+            "projectName": "practice"
+        }
+    ]
+}
