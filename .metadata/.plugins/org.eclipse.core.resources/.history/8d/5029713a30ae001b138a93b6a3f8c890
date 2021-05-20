@@ -1,0 +1,24 @@
+package com.kajiH.practice0205;
+
+public class Cast {
+
+	public static void main(String[] args) {
+
+		convertDoubleToInteger();
+
+	}
+
+	// practice 1
+	private static void convertDoubleToInteger() {
+		double myDouble = 1.9;
+		int downToInt = (int) myDouble;
+		float upToFloat = (float) downToInt;
+
+		System.out.printf("ダウンキャスト double -> int\n%.1f -> %d\n\n", myDouble,
+				downToInt);
+
+		System.out.printf("アップキャスト int -> float\n%d -> %.1f", downToInt,
+				upToFloat);
+	}
+
+}
