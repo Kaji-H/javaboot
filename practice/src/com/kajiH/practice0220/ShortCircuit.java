@@ -5,12 +5,12 @@ public class ShortCircuit {
         String str = null;
         // 必ず getTrue() メソッドが実行されないように
         // ショートサーキットとなるように ? を論理演算子で置き換えなさい
-        if (str != null & getTrue()) {
+        if (str != null && getTrue()) {
             System.out.println("1 つ目の if 文の中に入りました.");
         }
         // getFalse() メソッドが実行されないように
         // ショートサーキットとなるように ? を論理演算子で置き換えなさい
-        if (str == null | getFalse()) {
+        if (str == null || getFalse()) {
             System.out.println("2 つ目の if 文の中に入りました.");
         }
     }
