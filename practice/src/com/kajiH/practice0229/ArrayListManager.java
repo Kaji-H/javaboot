@@ -1,7 +1,6 @@
 package com.kajiH.practice0229;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArrayListManager {
