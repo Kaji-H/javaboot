@@ -14,32 +14,15 @@ public class GuessNumberGame {
     private final static String[] HINT_LEVEL_MESSAGES = { "ちょっと", "", "もっと",
             "かなり", "とても" };
 
+    private static int challengeCounter = 1;
+
     public static void main(String[] args) {
 
         int correctNum = RANDOM.nextInt(RANDOM_RANGE);
-        int challengeCounter = 1;
 
         printStart();
 
-        while (isNotOverMaxChallengeTime(challengeCounter)) {
-            int inputNum = 0;
-            System.out.printf("%d回目", challengeCounter);
-
-            try {
-                inputNum = Integer.parseInt(STDIN.next());
-
-            } catch (NumberFormatException e) {
-                System.out.printf("数字を入力してください\n");
-                continue;
-            }
-
-            if (isCorrect(correctNum, inputNum)) {
-                break;
-            }
-
-            printHint(correctNum, inputNum);
-            challengeCounter++;
-        }
+        guess(correctNum);
 
         printResult(correctNum, challengeCounter);
 
@@ -50,39 +33,78 @@ public class GuessNumberGame {
         System.out.printf("数字を当ててみてね\n");
     }
 
+    private static int guess(int correctNum) {
+        int inputNum = 0;
+
+        while (MAX_CHALLENGE_TIMES >= challengeCounter) {
+
+            System.out.printf("%d回目", challengeCounter);
+
+            try {
+                inputNum = Integer.parseInt(STDIN.next());
+
+            } catch (NumberFormatException e) {
+                System.out.printf("数字を入力してください\n");
+                continue;
+            }
+
+            if (isMatchInt(correctNum, inputNum)) {
+                return challengeCounter;
+            }
+
+            printHint(correctNum, inputNum);
+
+            challengeCounter++;
+        }
+        return challengeCounter;
+    }
+
     private static void printResult(int correctNum, int count) {
-        if (isNotOverMaxChallengeTime(count)) {
+        if (isSmallerCountThanMax(count)) {
             System.out.printf("すごい！！%d回で当てられちゃった！\n", count);
         } else {
             System.out.printf("残念！！正解は%dでした！\n", correctNum);
         }
     }
 
-    private static boolean isNotOverMaxChallengeTime(int count) {
+    private static boolean isSmallerCountThanMax(int count) {
         return count < MAX_CHALLENGE_TIMES;
     }
 
-    private static boolean isCorrect(int correctNum, int inputNum) {
-        return correctNum == inputNum;
+    private static boolean isMatchInt(int num1, int num2) {
+        return num1 == num2;
     }
 
     private static void printHint(int correctNum, int inputNum) {
-        int diff = correctNum - inputNum;
-        String sizeMessage = (inputNum > correctNum ? "小さい" : "大きい");
+        int numGap = correctNum - inputNum;
+        String numGapMessage = (inputNum > correctNum ? "小さい" : "大きい");
 
         for (int i = 0; i < HINT_LEVEL.length; i++) {
-            if (isInHintLevel(diff, i)) {
+            if (Math.abs(numGap) <= HINT_LEVEL[i]) {
 
                 System.out.printf("%s%s数字だよ\n", HINT_LEVEL_MESSAGES[i],
-                        sizeMessage);
+                        numGapMessage);
+
                 return;
             }
         }
+
         return;
     }
 
-    private static boolean isInHintLevel(int diff, int i) {
-        return Math.abs(diff) <= HINT_LEVEL[i];
-    }
+    // private static void getNumHint(int correctNum, int inputNum) {
+    // System.out.printf("もっと%s数字だよ\n",
+    // (inputNum > correctNum ? "小さい" : "大きい"));
+    // }
 
+    // private static void getMoreNumHint(int correctNum, int inputNum) {
+    // final int NEAR_GAP = 10;
+    // int numGap = correctNum - inputNum;
+
+    // getNumHint(correctNum, inputNum);
+
+    // if (Math.abs(numGap) <= NEAR_GAP) {
+    // System.out.printf("数字は近いよ\n");
+    // }
+    // }
 }
