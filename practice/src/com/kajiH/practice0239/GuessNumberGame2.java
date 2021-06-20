@@ -3,7 +3,7 @@ package com.kajiH.practice0239;
 import java.util.Random;
 import java.util.Scanner;
 
-public class GuessNumberGame {
+public class GuessNumberGame2 {
 
     private final static int RANDOM_RANGE = 100;
     private final static int MAX_CHALLENGE_TIMES = 5;
@@ -84,7 +84,6 @@ public class GuessNumberGame {
 
                 System.out.printf("%s%s数字だよ\n", HINT_LEVEL_MESSAGES[i],
                         numGapMessage);
-
                 return;
             }
         }
@@ -92,19 +91,4 @@ public class GuessNumberGame {
         return;
     }
 
-    // private static void getNumHint(int correctNum, int inputNum) {
-    // System.out.printf("もっと%s数字だよ\n",
-    // (inputNum > correctNum ? "小さい" : "大きい"));
-    // }
-
-    // private static void getMoreNumHint(int correctNum, int inputNum) {
-    // final int NEAR_GAP = 10;
-    // int numGap = correctNum - inputNum;
-
-    // getNumHint(correctNum, inputNum);
-
-    // if (Math.abs(numGap) <= NEAR_GAP) {
-    // System.out.printf("数字は近いよ\n");
-    // }
-    // }
 }
