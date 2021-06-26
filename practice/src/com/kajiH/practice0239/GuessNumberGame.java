@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class GuessNumberGame {
 
-    private final static int RANDOM_RANGE = 100;
-    private final static int MAX_CHALLENGE_TIMES = 5;
-    private final static Random RANDOM = new Random();
-    private final static Scanner STDIN = new Scanner(System.in);
+    private static final int GAME_LEVEL = 3;
+    private static final int RANDOM_RANGE = (int) Math.pow(10, GAME_LEVEL);
+    private static final int MAX_CHALLENGE_TIMES = 5 * GAME_LEVEL;
+    private static final Random RANDOM = new Random();
+    private static final Scanner STDIN = new Scanner(System.in);
 
-    private final static int[] HINT_LEVEL = { 10, 50, 100, 250, RANDOM_RANGE };
-    private final static String[] HINT_LEVEL_MESSAGES = { "ちょっと", "", "もっと",
+    private static final int[] HINT_LEVEL = { 10, 50, 100, 250, RANDOM_RANGE };
+    private static final String[] HINT_LEVEL_MESSAGES = { "ちょっと", "", "もっと",
             "かなり", "とても" };
 
     public static void main(String[] args) {
@@ -21,15 +22,20 @@ public class GuessNumberGame {
 
         printStart();
 
-        while (isNotOverMaxChallengeTime(challengeCounter)) {
+        while (!isOverMaxChallengeTime(challengeCounter)) {
             int inputNum = 0;
-            System.out.printf("%d回目", challengeCounter);
+            showTryCount(challengeCounter);
 
             try {
                 inputNum = Integer.parseInt(STDIN.next());
 
             } catch (NumberFormatException e) {
-                System.out.printf("数字を入力してください\n");
+                showReguireInputNumber();
+                continue;
+            }
+
+            if (!isCorrectRange(inputNum)) {
+                showAttentionInputRange();
                 continue;
             }
 
@@ -46,20 +52,38 @@ public class GuessNumberGame {
         STDIN.close();
     }
 
+    private static void showAttentionInputRange() {
+        System.out.printf("0~%dの数字を入力してください\n", RANDOM_RANGE - 1);
+    }
+
+    private static boolean isCorrectRange(int inputNum) {
+        return inputNum < RANDOM_RANGE && inputNum >= 0;
+    }
+
+    private static void showTryCount(int challengeCounter) {
+        System.out.printf("%d回目", challengeCounter);
+    }
+
+    private static void showReguireInputNumber() {
+        System.out.printf("数字を入力してください\n");
+    }
+
     private static void printStart() {
         System.out.printf("数字を当ててみてね\n");
     }
 
     private static void printResult(int correctNum, int count) {
-        if (isNotOverMaxChallengeTime(count)) {
+        if (!isOverMaxChallengeTime(count)) {
             System.out.printf("すごい！！%d回で当てられちゃった！\n", count);
-        } else {
-            System.out.printf("残念！！正解は%dでした！\n", correctNum);
+            return;
         }
+
+        System.out.printf("残念！！正解は%dでした！\n", correctNum);
+
     }
 
-    private static boolean isNotOverMaxChallengeTime(int count) {
-        return count < MAX_CHALLENGE_TIMES;
+    private static boolean isOverMaxChallengeTime(int count) {
+        return count > MAX_CHALLENGE_TIMES;
     }
 
     private static boolean isCorrect(int correctNum, int inputNum) {
