@@ -1,4 +1,4 @@
-package com.kajiH.practice0244;
+package com.kajiH.practice02447;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -44,7 +44,7 @@ public class GuessCardGame2 {
     private static int correctNumberElements;
 
     public static void main(String[] args) {
-        selectCollectCard();
+        selectCorrectCard();
 
         boolean isClear = guessMarkGame();
 
@@ -55,7 +55,7 @@ public class GuessCardGame2 {
         result(isClear);
     }
 
-    private static void selectCollectCard() {
+    private static void selectCorrectCard() {
         correctMarkElements = RANDOM.nextInt(CARD_MARK.length);
         correctNumberElements = RANDOM.nextInt(CARD_NUMBER.length);
 
@@ -67,8 +67,9 @@ public class GuessCardGame2 {
         int count = 0;
 
         showWordsThatSelectMark();
+        showWordsThatChoice();
 
-        while (isOverChalengeTimesForMark(count)) {
+        while (!isOverChalengeTimesForMark(count)) {
             int markNumber = inputMarkNumber();
 
             if (isCorrectMark(markNumber)) {
@@ -92,7 +93,7 @@ public class GuessCardGame2 {
     }
 
     private static boolean isOverChalengeTimesForMark(int count) {
-        return count < CHALENGE_TIMES_FOR_MARK_SELECTION;
+        return count > CHALENGE_TIMES_FOR_MARK_SELECTION;
     }
 
     private static boolean isCorrectMark(int markNumber) {
@@ -148,6 +149,9 @@ public class GuessCardGame2 {
     private static void showWordsThatSelectMark() {
         System.out.printf(WORDS_THAT_PLEASE_SELECT_MARK);
 
+    }
+
+    private static void showWordsThatChoice() {
         for (int i = 0; i < CARD_MARK.length; i++) {
             System.out.printf(WORDS_THAT_CHOICE, i, CARD_MARK[i]);
         }
@@ -159,7 +163,7 @@ public class GuessCardGame2 {
 
         showWordsThatSelectNumber();
 
-        while (isOverChalengeTimesForNumber(count)) {
+        while (!isOverChalengeTimesForNumber(count)) {
             int number = inputNumber();
 
             if (isCorrectNumber(number)) {
@@ -184,7 +188,7 @@ public class GuessCardGame2 {
     }
 
     private static boolean isOverChalengeTimesForNumber(int count) {
-        return count < CHALENGE_TIMES_FOR_NUMBER_SELECTION;
+        return count > CHALENGE_TIMES_FOR_NUMBER_SELECTION;
     }
 
     private static boolean isCorrectNumber(int number) {
