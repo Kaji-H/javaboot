@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
 
-public class RockPaperScissorsGame {
+public class RockPaperScissorsGame2 {
     private static final String[] ROCK_PAPER_SCISSERS_NAME_ARRAY = { "グー",
             "チョキ", "パー" };
     private static final String[] DIRECTIONS_NAME_ARRAY = { "上", "下", "左",
