@@ -3,8 +3,6 @@ package com.kajiH.practice0249;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 public class RockPaperScissorsGame2 {
     private static final String[] ROCK_PAPER_SCISSERS_NAME_ARRAY = { "グー",
             "チョキ", "パー" };

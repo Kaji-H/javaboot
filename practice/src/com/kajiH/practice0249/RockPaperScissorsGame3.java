@@ -3,7 +3,7 @@ package com.kajiH.practice0249;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RockPaperScissorsGame {
+public class RockPaperScissorsGame3 {
     private static final String[] HAND_TYPES = { "グー", "チョキ", "パー" };
 
     private static final String WORD_THAT_LETS_PLAY_ROCK_PAPER_SCISSORS = "じゃんけん勝負\n";
