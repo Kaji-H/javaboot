@@ -8,8 +8,8 @@ public class PracticeFor {
     private final static int TIMES = 12;
 
     public static void main(String[] args) {
-        // textSpecificTimesPrinter();
-        // ReverseOrderNumberPrinter();
+        textSpecificTimesPrinter();
+        ReverseOrderNumberPrinter();
         ArrayElementsPrinter();
     }
 

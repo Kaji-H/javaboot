@@ -2,9 +2,9 @@ package com.kajiH.manual.practice0235;
 
 public class PracticeContinueAndBreak {
     public static void main(String[] args) {
-        // EvenNumbersAdder();
-        // LaveledContinueStatement();
-        // BrakeNest();
+        EvenNumbersAdder();
+        LaveledContinueStatement();
+        BrakeNest();
         LabeledBrakeNest();
     }
 

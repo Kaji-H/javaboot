@@ -10,7 +10,7 @@ public class PracticeWhile {
     public static void main(String[] args) {
         Scanner stdin = new Scanner(System.in);
 
-        // UnitlTargetNumberLooper(stdin);
+        UnitlTargetNumberLooper(stdin);
         UntilBlankLooper(stdin);
 
         stdin.close();
