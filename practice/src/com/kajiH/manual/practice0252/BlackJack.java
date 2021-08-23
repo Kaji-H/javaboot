@@ -16,7 +16,8 @@ public class BlackJack {
     private static final double WIN_RATE = 2.0;
     private static final double BLACK_JACK_RATE = 3.0;
 
-    private static final int MAX_DEALS = 2;
+    private static final int REQUIRED_BED_COINS = 10;
+    private static final int MAX_FIRST_DEALS = 2;
 
     private static final int MAX_SCORE = 21;
     private static final int ACE_CARD_ELEMENTS = 0;
@@ -24,9 +25,9 @@ public class BlackJack {
 
     private static final int ONE_LINE = 1;
 
-    private static final String[] YES_OR_NO = { "Y", "N" };
+    private static final String YES_STR = "Y";
+    private static final String NO_STR = "N";
     private static final int NOT_BET = 0;
-    private static final int YES_NUM = 0;
 
     private static final String WORD_THAT_CORRECT_COIN_HOLDINGS = "現在のコイン数 : %d\n";
     private static final String WORD_THAT_BET_COINS = "%d コイン賭けました\n";
@@ -93,7 +94,7 @@ public class BlackJack {
             return 0;
         }
 
-        return 10;
+        return REQUIRED_BED_COINS;
     }
 
     private static double playGame() {
@@ -115,7 +116,7 @@ public class BlackJack {
             return getBlackJackRate(myScore, dealerScore);
         }
 
-        myScore = getScoreAndSelectHitOrStand(myHand, myScore);
+        myScore = getScoreAfterSelectHitOrStand(myHand, myScore);
 
         if (isBust(myScore)) {
             return LOSE_RATE;
@@ -127,7 +128,7 @@ public class BlackJack {
     }
 
     private static void dealForFirst(List<String> hand1, List<String> hand2) {
-        for (int i = 0; i < MAX_DEALS; i++) {
+        for (int i = 0; i < MAX_FIRST_DEALS; i++) {
             hand1.add(deal());
             hand2.add(deal());
         }
@@ -178,7 +179,7 @@ public class BlackJack {
         return LOSE_RATE;
     }
 
-    private static int getScoreAndSelectHitOrStand(List<String> hand, int score) {
+    private static int getScoreAfterSelectHitOrStand(List<String> hand, int score) {
         if (isMoreThanMaxScore(score)) {
             return score;
         }
@@ -194,7 +195,7 @@ public class BlackJack {
             score = calScore(hand);
             showScore(playerName, score);
 
-            return getScoreAndSelectHitOrStand(hand, score);
+            return getScoreAfterSelectHitOrStand(hand, score);
         }
 
         return score;
@@ -298,7 +299,7 @@ public class BlackJack {
     }
 
     private static void showHands(List<String> myCards, List<String> dealerCards) {
-        for (int i = 0; i < MAX_DEALS; i++) {
+        for (int i = 0; i < MAX_FIRST_DEALS; i++) {
             showCardOf(playerName, myCards.get(i));
             showCardOf(dealerName, dealerCards.get(i));
             // System.out.printf(WORD_THAT_BE_DEALT_MY_CARD, myCards.get(i));
@@ -357,7 +358,7 @@ public class BlackJack {
     }
 
     private static boolean isYes(String yesNo) {
-        if (yesNo.equals(YES_OR_NO[YES_NUM])) {
+        if (yesNo.equals(YES_STR)) {
             return true;
         }
 
@@ -366,17 +367,19 @@ public class BlackJack {
 
     private static boolean isYesOrNo(String yesNo) {
 
-        for (String str : YES_OR_NO) {
-            if (yesNo.equals(str)) {
-                return true;
-            }
+        if (yesNo.equals(YES_STR)) {
+            return true;
+        }
+
+        if (yesNo.equals(NO_STR)) {
+            return true;
         }
 
         return false;
     }
 
     private static boolean hasEnoughCoins(int myCoins) {
-        return myCoins >= 10;
+        return myCoins >= REQUIRED_BED_COINS;
     }
 
     private static boolean isMaxScore(int score) {
