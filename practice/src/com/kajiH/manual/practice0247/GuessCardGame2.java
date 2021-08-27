@@ -1,4 +1,4 @@
-package com.kajiH.manual.practice02447;
+package com.kajiH.manual.practice0247;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class GuessCardGame2 {
 
     private static final String[] CARD_MARK = { "ハート", "ダイヤ", "スペード", "クローバ" };
-    private static final int[] CARD_NUMBER = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            11, 12, 13 };
+    private static final int[] CARD_NUMBER = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
     private static final String[] CARD_NUMBER_STRING = { "A", "J", "Q", "K" };
     private static final int MAX_MARK_NUM = CARD_MARK.length - 1;
     private static final int MIN_MARK_NUM = 0;
@@ -88,8 +87,7 @@ public class GuessCardGame2 {
     }
 
     private static void showWordsThatClearMarkGame() {
-        System.out.printf(WORDS_THAT_CLEAR_MARK_GAME,
-                CARD_MARK[correctMarkElements]);
+        System.out.printf(WORDS_THAT_CLEAR_MARK_GAME, CARD_MARK[correctMarkElements]);
     }
 
     private static boolean isOverChalengeTimesForMark(int count) {
@@ -118,10 +116,8 @@ public class GuessCardGame2 {
         return input;
     }
 
-    private static void showWordsThatPleaseInputInMarkRange(int maxNum,
-            int minNum) {
-        System.out.printf(WORDS_THAT_PLEASE_INPUT_IN_MARK_RANGE, minNum,
-                maxNum);
+    private static void showWordsThatPleaseInputInMarkRange(int maxNum, int minNum) {
+        System.out.printf(WORDS_THAT_PLEASE_INPUT_IN_MARK_RANGE, minNum, maxNum);
     }
 
     private static void showWordsThatPleaseInputNumber() {
@@ -178,9 +174,7 @@ public class GuessCardGame2 {
     }
 
     private static void showWordsThatHint(int number) {
-        System.out.printf(WORDS_THAT_HINT,
-                (number < CARD_NUMBER[correctNumberElements] ? BIGGER
-                        : SMALLER));
+        System.out.printf(WORDS_THAT_HINT, (number < CARD_NUMBER[correctNumberElements] ? BIGGER : SMALLER));
     }
 
     private static void showWordsThatMissNumber(int number) {
@@ -206,8 +200,7 @@ public class GuessCardGame2 {
         int input = changeStringToCardNumber(inputStr);
 
         if (!isInCardNumberRange(input)) {
-            showWordsThatPleaseInputInCardNumberRange(MAX_CARD_NUM,
-                    MIN_CARD_NUM);
+            showWordsThatPleaseInputInCardNumberRange(MAX_CARD_NUM, MIN_CARD_NUM);
             return inputNumber();
         }
 
@@ -226,8 +219,7 @@ public class GuessCardGame2 {
         return inputNum;
     }
 
-    private static void showWordsThatPleaseInputInCardNumberRange(int maxNum,
-            int minNum) {
+    private static void showWordsThatPleaseInputInCardNumberRange(int maxNum, int minNum) {
         System.out.printf(PLEASE_INPUT_IN_CARD_NUMBER_RANGE, minNum, maxNum);
     }
 
@@ -291,13 +283,11 @@ public class GuessCardGame2 {
     }
 
     private static void showWordsThatMiss() {
-        System.out.printf(WORDS_THAT_MISS, CARD_MARK[correctMarkElements],
-                CARD_NUMBER[correctNumberElements]);
+        System.out.printf(WORDS_THAT_MISS, CARD_MARK[correctMarkElements], CARD_NUMBER[correctNumberElements]);
     }
 
     private static void showWordsThatClear() {
-        System.out.printf(WORDS_THAT_CLEAR, CARD_MARK[correctMarkElements],
-                CARD_NUMBER[correctNumberElements]);
+        System.out.printf(WORDS_THAT_CLEAR, CARD_MARK[correctMarkElements], CARD_NUMBER[correctNumberElements]);
     }
 
 }

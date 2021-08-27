@@ -1,7 +1,6 @@
 package com.kajiH.manual.practice0255;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
