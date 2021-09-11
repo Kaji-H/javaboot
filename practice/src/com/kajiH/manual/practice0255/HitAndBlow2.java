@@ -31,7 +31,7 @@ public class HitAndBlow2 {
 
     public static void main(String[] args) {
         String[] correct = makeCorrect();
-        String correctStr = changeIntArrayToString(correct);
+        String correctStr = changeStrArrayToString(correct);
 
         int round = 0;
         String winnerName = EMPTY_STR;
@@ -78,11 +78,11 @@ public class HitAndBlow2 {
         return makingCorrect;
     }
 
-    private static String changeIntArrayToString(String[] correct) {
+    private static String changeStrArrayToString(String[] correct) {
         String str = EMPTY_STR;
 
-        for (String num : correct) {
-            str += num;
+        for (String numStr : correct) {
+            str += numStr;
         }
 
         return str;
@@ -91,6 +91,12 @@ public class HitAndBlow2 {
     private static String[] inputResponseNum() {
         String numStr = stdin.nextLine();
 
+        String[] numStrArray = validate(numStr);
+
+        return numStrArray;
+    }
+
+    private static String[] validate(String numStr) {
         if (!isInt(numStr)) {
             show(MESSAGE_THAT_INPUT_NUM);
             return inputResponseNum();
