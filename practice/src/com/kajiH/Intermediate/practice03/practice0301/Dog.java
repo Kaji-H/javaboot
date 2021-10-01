@@ -1,4 +1,4 @@
-package com.kajiH.Intermediate;
+package com.kajiH.Intermediate.practice03.practice0301;
 
 public class Dog {
 
@@ -12,7 +12,7 @@ public class Dog {
         this.dogType = dogType;
     }
 
-    public void showData() {
+    public void showDetails() {
         System.out.printf("%s の %s は %d 歳です.\n", this.dogType, this.name, this.age);
     }
 
