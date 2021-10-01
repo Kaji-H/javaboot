@@ -1,9 +1,7 @@
 package com.kajiH.elementary.practice15;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringsSplitter {
@@ -11,8 +9,6 @@ public class StringsSplitter {
     private static final String PUNCTUATION = "、";
     private static final String PERIOD = "。";
     private static final String NEW_LINE = "¥n";
-
-    private static final String PATTERNS_BEGINININNG_WITH_EITHER = "^%s|%s";
 
     public static void main(String[] args) {
         // List<String> lines =
