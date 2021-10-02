@@ -1,11 +1,9 @@
 package com.kajiH.elementary.practice8;
 
-/**
- * CommaSeparated
- */
 public class CommaSeparated {
 
     private static final int MINUS_ONE = -1;
+    private static final int COMMA_POSITION = 3;
     private static final String WORD_THAT_MINUS = "-";
     private static final String WORD_THAT_COMMA = ",";
 
@@ -45,15 +43,15 @@ public class CommaSeparated {
     private static boolean isAddComma(int digits, int currentNum) {
         int currentDigits = digits - currentNum;
 
-        if (isSame(digits, currentDigits)) {
+        if (isFirstNum(currentNum)) {
             return false;
         }
 
-        return currentDigits % 3 == 0;
+        return currentDigits % COMMA_POSITION == 0;
     }
 
-    private static boolean isSame(int digits, int currentDigits) {
-        return currentDigits == digits;
+    private static boolean isFirstNum(int currentNum) {
+        return currentNum == 0;
     }
 
     private static boolean isMinus(int num) {
