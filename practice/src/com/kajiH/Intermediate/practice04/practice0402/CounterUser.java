@@ -10,7 +10,6 @@ public class CounterUser {
             counter = new Counter();
         }
 
-        Counter obj = new Counter();
-        obj.showCounter();
+        Counter.showCounter();
     }
 }
