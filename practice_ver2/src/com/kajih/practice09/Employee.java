@@ -39,7 +39,7 @@ public class Employee {
         this.division = division;
     }
 
-    public void showData() {
+    public void showDetails() {
         System.out.printf("従業員ID:%d %s（%d 歳）さんは、部署ID:%d の %s 所属です. %n", this.id, this.name, this.age,
                 this.division.getId(), this.division.getName());
     }

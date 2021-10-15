@@ -1,4 +1,4 @@
-package com.kajih.practice08;
+package com.kajih.practice09;
 
 public class Division {
 
