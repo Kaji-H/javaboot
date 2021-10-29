@@ -10,8 +10,5 @@ public class CurrentDateTime {
 
         DateTimeFormatter format = DateTimeFormatter.ofPattern("現在の日時: yyyy 年 MM 月 dd 日 HH 時 mm 分");
         System.out.println(format.format(now));
-        // System.out.printf("現在の日時: %d 年 %d 月 %d 日 %d 時 %d 分\n", now.getYear(),
-        // now.getMonth(), now.getDayOfMonth(),
-        // now.getHour(), now.getMinute());
     }
 }
