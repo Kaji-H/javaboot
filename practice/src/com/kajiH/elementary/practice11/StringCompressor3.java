@@ -4,7 +4,7 @@ public class StringCompressor3 {
 
     private static final int FIRST_ELEMENTS = 0;
     private static final int INIT_COUNT = 0;
-    private static final char TEMP_CHAR = '-';
+    private static final char HYPHEN_CHAR = '-';
     private static final String EMPTY_STRING = "";
 
     public static void main(String[] args) {
@@ -21,7 +21,7 @@ public class StringCompressor3 {
         int countChar = INIT_COUNT;
         int countElements = INIT_COUNT;
 
-        while (!isNotOverStrLength(string.length(), countElements)) {
+        while (isNotOverStrLength(string.length(), countElements)) {
             countChar++;
             countElements++;
 
@@ -42,7 +42,7 @@ public class StringCompressor3 {
         int countChar = INIT_COUNT;
         int countElements = INIT_COUNT;
 
-        while (!isNotOverStrLength(string.length(), countElements)) {
+        while (isNotOverStrLength(string.length(), countElements)) {
 
             countElements++;
 
@@ -83,7 +83,7 @@ public class StringCompressor3 {
 
     private static char receiveCharInStr(String string, int num) {
         if (isEqualsStrLength(string, num)) {
-            return TEMP_CHAR;
+            return HYPHEN_CHAR;
         }
         return string.charAt(num);
     }
