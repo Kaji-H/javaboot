@@ -43,7 +43,12 @@ public class Chara {
         System.out.printf("%s （ HP %d ）\n", this.name, this.status.getHp());
     }
 
+    public void showStatus() {
+        System.out.printf("NAME:%s HP:%d\n", this.name, this.status.getHp());
+    }
+
     public boolean isDeth() {
         return this.isDeth;
     }
+
 }

@@ -2,17 +2,19 @@ package com.kajiH.elementary.practice21;
 
 public class Status {
 
+    private HashDigest hash = new HashDigest();
+
     private int hp;
     private int atk;
     private int def;
     private int luck;
 
     public Status(String name) {
-        this.hp = 10;
+        this.hp = hash.generateNumber(name, 1);
     }
 
     public int getHp() {
-        return hp;
+        return this.hp;
     }
 
     public void setHp(int hp) {
@@ -20,15 +22,15 @@ public class Status {
     }
 
     public int getAtk() {
-        return atk;
+        return this.atk;
     }
 
     public int getDef() {
-        return def;
+        return this.def;
     }
 
     public int getLuck() {
-        return luck;
+        return this.luck;
     }
 
 }
