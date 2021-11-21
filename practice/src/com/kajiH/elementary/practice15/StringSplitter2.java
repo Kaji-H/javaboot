@@ -1,7 +1,6 @@
 package com.kajiH.elementary.practice15;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class StringSplitter2 {
@@ -121,7 +120,7 @@ public class StringSplitter2 {
         return lines;
     }
 
-    private static Collection<? extends String> splitFixedLengthJaHyphenation(String str, int fixedLength) {
+    private static List<String> splitFixedLengthJaHyphenation(String str, int fixedLength) {
         List<String> lines = new ArrayList<>();
         int beginIndex = 0;
         int endIndex = fixedLength;
