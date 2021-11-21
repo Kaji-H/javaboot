@@ -5,7 +5,8 @@ import java.util.List;
 
 public class StringSplitter2 {
 
-    private static final String LINE_BREAK_CODE = "¥n";
+    private static final int LINE_BREAK_CODE_INDEX = 0;
+    private static final int JA_WORD_INDEX = 0;
 
     private static final String[] PUNCTUATION_ARRAY = { "、", "," };
     private static final String[] PERIOD_ARRAY = { "。", "." };
@@ -23,7 +24,7 @@ public class StringSplitter2 {
         // 6);
 
         List<String> lines = splitFixedLengthJaHyphenationWithLineBreakCodeAndPeriod(
-                "このプログラムは、句読点を行頭禁則処理するサンプル。¥n" + "最後の行です", 8);
+                "このプログラムは句読点を行頭禁則処理するサンプル。¥n" + "最後の行です", 8);
 
         for (String line : lines) {
             System.out.println(line);
@@ -71,9 +72,8 @@ public class StringSplitter2 {
     private static String addLineBreakCodeBehindPeriod(String line) {
         String str = line;
 
-        for (String period : PERIOD_ARRAY) {
-            str = str.replace(period, period + LINE_BREAK_CODE);
-        }
+        str = str.replace(PERIOD_ARRAY[JA_WORD_INDEX],
+                PERIOD_ARRAY[JA_WORD_INDEX] + LINE_BREAK_CODE_ARRAY[LINE_BREAK_CODE_INDEX]);
 
         return str;
     }
@@ -151,17 +151,15 @@ public class StringSplitter2 {
         }
 
         String str = line.substring(index, nextIndex);
-        for (String period : PERIOD_ARRAY) {
-            if (str.equals(period)) {
-                return true;
-            }
+
+        if (str.equals(PERIOD_ARRAY[JA_WORD_INDEX])) {
+            return true;
         }
 
-        for (String punctuation : PUNCTUATION_ARRAY) {
-            if (str.equals(punctuation)) {
-                return true;
-            }
+        if (str.equals(PUNCTUATION_ARRAY[JA_WORD_INDEX])) {
+            return true;
         }
+
         return false;
     }
 
