@@ -2,10 +2,10 @@ package com.kajiH.elementary.practice11;
 
 public class StringCompressor3 {
 
-    private static final int FIRST_ELEMENTS = 0;
+    private static final int FIRST_INDEX = 0;
     private static final int INIT_COUNT = 0;
     private static final char HYPHEN_CHAR = '-';
-    private static final String EMPTY_STRING = "";
+    private static final String EMPTY = "";
 
     public static void main(String[] args) {
         String text = encode("AAAAABBBBBBBBBBCDDDDDDDDDEEFFFFFG");
@@ -16,20 +16,20 @@ public class StringCompressor3 {
     }
 
     private static String encode(String string) {
-        String encodeStr = EMPTY_STRING;
-        char tempChar = string.charAt(FIRST_ELEMENTS);
-        int countChar = INIT_COUNT;
+        String encodeStr = EMPTY;
+        char tempChar = string.charAt(FIRST_INDEX);
+        int countSameChar = INIT_COUNT;
         int countElements = INIT_COUNT;
 
-        while (isNotOverStrLength(string.length(), countElements)) {
-            countChar++;
+        while (!isOverStrLength(string.length(), countElements)) {
+            countSameChar++;
             countElements++;
 
-            if (isNotEqualsNextChar(tempChar, countElements, string)) {
-                encodeStr += generateEncodeWord(tempChar, countChar);
+            if (!isEqualsNextChar(tempChar, countElements, string)) {
+                encodeStr += generateEncodeWord(tempChar, countSameChar);
 
-                tempChar = receiveCharInStr(string, countElements);
-                countChar = INIT_COUNT;
+                tempChar = receiveNextCharInStr(string, countElements);
+                countSameChar = INIT_COUNT;
             }
         }
 
@@ -37,23 +37,23 @@ public class StringCompressor3 {
     }
 
     private static String decode(String string) {
-        String decodeStr = EMPTY_STRING;
-        char tempChar = string.charAt(FIRST_ELEMENTS);
+        String decodeStr = EMPTY;
+        char tempChar = string.charAt(FIRST_INDEX);
         int countChar = INIT_COUNT;
         int countElements = INIT_COUNT;
 
-        while (isNotOverStrLength(string.length(), countElements)) {
+        while (!isOverStrLength(string.length(), countElements)) {
 
             countElements++;
 
-            if (isNumAndInStrLength(string, countElements)) {
+            if (isNumOfCurrentChar(string, countElements)) {
                 countChar = generateCountChar(countChar, string.charAt(countElements));
                 continue;
             }
 
             decodeStr += generateDecodeWord(tempChar, countChar);
 
-            tempChar = receiveCharInStr(string, countElements);
+            tempChar = receiveNextCharInStr(string, countElements);
             countChar = INIT_COUNT;
 
         }
@@ -70,7 +70,7 @@ public class StringCompressor3 {
     }
 
     private static String generateEncodeWord(char addChar, int count) {
-        String str = EMPTY_STRING;
+        String str = EMPTY;
 
         str += addChar;
 
@@ -81,11 +81,15 @@ public class StringCompressor3 {
         return str;
     }
 
-    private static char receiveCharInStr(String string, int num) {
+    private static char receiveNextCharInStr(String string, int num) {
         if (isEqualsStrLength(string, num)) {
-            return HYPHEN_CHAR;
+            return receiveCharWhenStringIndexOutOfBoundsException();
         }
         return string.charAt(num);
+    }
+
+    private static char receiveCharWhenStringIndexOutOfBoundsException() {
+        return HYPHEN_CHAR;
     }
 
     private static int changeNum(char charAt) {
@@ -97,7 +101,7 @@ public class StringCompressor3 {
     }
 
     private static String generateDecodeWord(char tempChar, int countChar) {
-        String str = EMPTY_STRING;
+        String str = EMPTY;
 
         for (int i = 0; i <= countChar; i++) {
             str += tempChar;
@@ -118,15 +122,31 @@ public class StringCompressor3 {
         return string.length() == num;
     }
 
-    private static boolean isNotEqualsNextChar(char tempChar, int numOfChar, String strng) {
-        return numOfChar == strng.length() || tempChar != strng.charAt(numOfChar);
+    private static boolean isEqualsNextChar(char tempChar, int nextIndex, String strng) {
+        return nextIndex < strng.length() && tempChar == strng.charAt(nextIndex);
     }
 
-    private static boolean isNotOverStrLength(int length, int numOfChar) {
-        return numOfChar < length;
+    private static boolean isOverStrLength(int strLength, int numOfChar) {
+        return numOfChar >= strLength;
     }
 
-    private static boolean isNumAndInStrLength(String string, int countElements) {
-        return string.length() > countElements && Character.isDigit(string.charAt(countElements));
+    private static boolean isNumOfCurrentChar(String string, int currentElements) {
+        if (!isInStrLength(string, currentElements)) {
+            return false;
+        }
+
+        if (!isNum(string.charAt(currentElements))) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static boolean isInStrLength(String string, int currentElements) {
+        return string.length() > currentElements;
+    }
+
+    private static boolean isNum(char character) {
+        return Character.isDigit(character);
     }
 }
