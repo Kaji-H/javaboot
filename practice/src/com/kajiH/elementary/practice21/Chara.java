@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Chara {
 
+    private static final int MAX_PERCENTAGE = 100;
+
     private Random RAND = new Random();
 
     private Status status;
@@ -24,14 +26,24 @@ public class Chara {
         return this.name;
     }
 
-    public int attack() {
-        return RAND.nextInt(3) + 1;
+    public int attack(int enemyDef) {
+        if (isLucky()) {
+            enemyDef = 0;
+        }
+
+        int damage = this.status.getAtk() - enemyDef;
+
+        if (isNoDamage(damage)) {
+            damage = 0;
+        }
+
+        return damage;
     }
 
     public void defence(int damage) {
         int currentHp = this.status.getHp() - damage;
 
-        if (currentHp <= 0) {
+        if (!isGreaterThanZero(currentHp)) {
             currentHp = 0;
             this.isDeth = true;
         }
@@ -44,11 +56,24 @@ public class Chara {
     }
 
     public void showStatus() {
-        System.out.printf("NAME:%s HP:%d\n", this.name, this.status.getHp());
+        System.out.printf("NAME:%s HP:%d ATK:%d DEF:%d LUCK:%d\n", this.name, this.status.getHp(), this.status.getAtk(),
+                this.status.getDef(), this.status.getLuck());
+    }
+
+    public boolean isLucky() {
+        return this.status.getLuck() >= RAND.nextInt(MAX_PERCENTAGE);
     }
 
     public boolean isDeth() {
         return this.isDeth;
+    }
+
+    private boolean isNoDamage(int damage) {
+        return damage < 0;
+    }
+
+    private boolean isGreaterThanZero(int hp) {
+        return hp > 0;
     }
 
 }

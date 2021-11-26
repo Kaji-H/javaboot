@@ -10,11 +10,13 @@ public class BattleField {
     private static final String MESSAGE_BATTLE_START = "＝＝＝バトル開始＝＝＝\n";
     private static final String MESSAGE_NEXT_TURN = "ー　次のターン　ー\n";
     private static final String MESSAGE_THAT_ATTACK = "%s の攻撃\n";
+    private static final String MESSAGE_THAT_CRITICAL_HIT = "会心の一撃！\n";
     private static final String MESSAGE_THAT_DAMAGE = "%s に %d ダメージ\n";
     private static final String MESSAGE_THAT_DETH = "%s は力尽きた・・・\n";
 
     private static final String NO_NAME = "-";
     private static final int NUM_OF_PLAYERS = 2;
+    private static final int INIT_TURN = 0;
     private static final int FIRST_TURN = 1;
 
     private Chara[] players;
@@ -41,15 +43,16 @@ public class BattleField {
     }
 
     public void playBattle() {
-        int turn = FIRST_TURN;
+        int turn = INIT_TURN;
 
         while (isAlive(this.players)) {
+            turn++;
+
             showMessageThatTurn(this.players, turn);
 
             playAttackAction(this.players);
 
             showBlankLine();
-            turn++;
         }
     }
 
@@ -78,17 +81,21 @@ public class BattleField {
 
     private void playAttackAction(Chara[] players) {
         for (int i = 0; i < players.length; i++) {
-            int attackerElements = i;
-            int defenderElements = (i + 1) % players.length;
+            int attacker = i;
+            int defender = (i + 1) % players.length;
 
-            showMessageThatAttack(players[attackerElements]);
-            int damage = players[attackerElements].attack();
+            showMessageThatAttack(players[attacker]);
+            int damage = players[attacker].attack(players[defender].getStatus().getDef());
 
-            showMessageThatDamage(players[defenderElements], damage);
-            players[defenderElements].defence(damage);
+            if (isCriticalHit(players[attacker], damage)) {
+                showMessageThatCriticalHit();
+            }
 
-            if (players[defenderElements].isDeth()) {
-                showMessageThatDeth(players[defenderElements]);
+            showMessageThatDamage(players[defender], damage);
+            players[defender].defence(damage);
+
+            if (players[defender].isDeth()) {
+                showMessageThatDeth(players[defender]);
                 return;
             }
         }
@@ -135,6 +142,10 @@ public class BattleField {
         showBlankLine();
     }
 
+    private void showMessageThatCriticalHit() {
+        System.out.printf(MESSAGE_THAT_CRITICAL_HIT);
+    }
+
     private void showMessageThatAttack(Chara player) {
         System.out.printf(MESSAGE_THAT_ATTACK, player.getName());
     }
@@ -157,7 +168,11 @@ public class BattleField {
     }
 
     private boolean isFirstTurn(int turn) {
-        return turn == 1;
+        return turn == FIRST_TURN;
+    }
+
+    private boolean isCriticalHit(Chara chara, int damage) {
+        return chara.getStatus().getAtk() <= damage;
     }
 
 }

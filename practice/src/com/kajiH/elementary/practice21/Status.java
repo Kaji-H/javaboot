@@ -2,35 +2,57 @@ package com.kajiH.elementary.practice21;
 
 public class Status {
 
+    public static void main(String[] args) {
+        Status st = new Status("");
+
+        for (int a : st.status) {
+            System.out.println(a);
+        }
+
+    }
+
+    private static final int[] MAX_RANGE = { 200, 100, 50, 50 };
+    private static final int[] MIN_RANGE = { 100, 20, 20, 1 };
+    private static final int HP = 0;
+    private static final int ATK = 1;
+    private static final int DEF = 2;
+    private static final int LUCK = 3;
+    private static final int MAX_STATUS_TYPES = 4;
+
+    private int[] status = new int[MAX_STATUS_TYPES];
     private HashDigest hash = new HashDigest();
 
-    private int hp;
-    private int atk;
-    private int def;
-    private int luck;
-
     public Status(String name) {
-        this.hp = hash.generateNumber(name, 1);
+        for (int i = 0; i < MAX_STATUS_TYPES; i++) {
+            this.status[i] = generateStatus(name, i);
+        }
     }
 
     public int getHp() {
-        return this.hp;
+        return this.status[HP];
     }
 
     public void setHp(int hp) {
-        this.hp = hp;
+        this.status[HP] = hp;
     }
 
     public int getAtk() {
-        return this.atk;
+        return this.status[ATK];
     }
 
     public int getDef() {
-        return this.def;
+        return this.status[DEF];
     }
 
     public int getLuck() {
-        return this.luck;
+        return this.status[LUCK];
+    }
+
+    private int generateStatus(String name, int i) {
+        double rate = this.hash.generateNumber(name, i) / 255.0;
+        int value = (int) ((MAX_RANGE[i] - MIN_RANGE[i]) * rate) + MIN_RANGE[i];
+        
+        return value;
     }
 
 }
