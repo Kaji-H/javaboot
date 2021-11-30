@@ -2,15 +2,6 @@ package com.kajiH.elementary.practice21;
 
 public class Status {
 
-    public static void main(String[] args) {
-        Status st = new Status("");
-
-        for (int a : st.status) {
-            System.out.println(a);
-        }
-
-    }
-
     private static final int[] MAX_RANGE = { 200, 100, 50, 50 };
     private static final int[] MIN_RANGE = { 100, 20, 20, 1 };
     private static final int HP = 0;
@@ -51,7 +42,7 @@ public class Status {
     private int generateStatus(String name, int i) {
         double rate = this.hash.generateNumber(name, i) / 255.0;
         int value = (int) ((MAX_RANGE[i] - MIN_RANGE[i]) * rate) + MIN_RANGE[i];
-        
+
         return value;
     }
 
