@@ -1,6 +1,6 @@
 package com.kajih.practice21;
 
-import com.kajih.practice21.Data.Division;
+import com.kajih.practice21.Data.*;
 
 public class Business {
     public static void main(String[] args) {
