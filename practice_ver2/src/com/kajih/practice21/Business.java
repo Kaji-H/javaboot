@@ -1,6 +1,7 @@
 package com.kajih.practice21;
 
 import com.kajih.practice21.Data.Division;
+import com.kajih.practice21.Data.Employee;
 
 public class Business {
     public static void main(String[] args) {
