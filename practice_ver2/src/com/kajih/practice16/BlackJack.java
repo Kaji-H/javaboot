@@ -7,7 +7,7 @@ import com.kajih.practice16.card.Card;
 import com.kajih.practice16.card.CardType.FaceCards;
 import com.kajih.practice16.card.CardsMng;
 
-public class Main {
+public class BlackJack {
 
     private static final int TEN_POINTS = 10;
     private static final int MAX_ACE_POINTS = 11;
