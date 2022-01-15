@@ -1,0 +1,630 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch DogOwner",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice02.DogOwner",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch DogOwner(1)",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice03.practice0301.DogOwner",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch HouseKeeper",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice03.practice0302.HouseKeeper",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch FigureManeger",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice04.practice0401.FigureManeger",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch CounterUser",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice04.practice0402.CounterUser",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Calculate",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice05.practice0501.Calculate",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PersonManager",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice05.practice0502.PersonManager",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ChildHouse",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice06.ChildHouse",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Bank",
+            "request": "launch",
+            "mainClass": "com.kajiH.Intermediate.practice7.Bank",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PriceCalculator",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice1.PriceCalculator",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ChildrenHelper",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice10.ChildrenHelper",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringCompressor",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice11.StringCompressor",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringCompressor2",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice11.StringCompressor2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch BattleField",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice12.BattleField",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch BattleField2",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice12.BattleField2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch SlimeAttacker",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice13.SlimeAttacker",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch TemperatureManager",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice13.TemperatureManager",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch UserRegistration",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice14.UserRegistration",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringsSplitter",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice15.StringsSplitter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch AntiMagicNumber",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice2.AntiMagicNumber",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch MrSecretary",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice3.MrSecretary",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Rent",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice4.Rent",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuardClause",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice5.GuardClause",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch TargetObjectsComparator",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice6.TargetObjectsComparator",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch SquarePrinter",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice7.SquarePrinter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch CommaSeparated",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice8.CommaSeparated",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch StatusReader",
+            "request": "launch",
+            "mainClass": "com.kajiH.elementary.practice9.StatusReader",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "com.kajiH.main",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch DisplayValue",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0201.DisplayValue",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ReservedWords",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0202.ReservedWords",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ValueType",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0203.ValueType",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch IntOverflow",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0204.IntOverflow",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cast",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0205.Cast",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch DoubtfulNamingRules",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0206.DoubtfulNamingRules",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GoodVariableName",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0208.GoodVariableName",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch SurvivorChecker",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0209.SurvivorChecker",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch AutoFormatter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0210.AutoFormatter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch QuickFix",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0211.QuickFix",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ShortCut",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice02121314.ShortCut",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch practice",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice02121314.practice",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PracticeStringType",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0215.PracticeStringType",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch BadInputReciever",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0216.BadInputReciever",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch NumberInputReciever",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0216.NumberInputReciever",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringInputReceiver",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0216.StringInputReceiver",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArithmeticOperator",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0217.ArithmeticOperator",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch AssignmentOperator",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0218.AssignmentOperator",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RelationalOperator",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0219.RelationalOperator",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ShortCircuit",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0220.ShortCircuit",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch IncrementDecrement",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0221.IncrementDecrement",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch CommentTraining",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0222.CommentTraining",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch NamePrintMessageBuilder",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0223.NamePrintMessageBuilder",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PercentFormatter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0223.PercentFormatter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch WeightPrintMessageBuilder",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0223.WeightPrintMessageBuilder",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch YenFormatter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0223.YenFormatter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ZeroPaddingFormatter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0223.ZeroPaddingFormatter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch LargestOfThreeNumbersFinder",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0224.LargestOfThreeNumbersFinder",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch VariableNamesCorrecter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0226.VariableNamesCorrecter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch VariousArrays",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0227.VariousArrays",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch MultiDemendionalArray",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0228.MultiDemendionalArray",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayListManager",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0229.ArrayListManager",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch LeapYearChecker",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0230.LeapYearChecker",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestResultNotifier",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0231.TestResultNotifier",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PracticeFor",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0232.PracticeFor",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PracticeExpansionFor",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0233.PracticeExpansionFor",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PracticeWhile",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0234.PracticeWhile",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch PracticeContinueAndBreak",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0235.PracticeContinueAndBreak",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch MoreNarrowScope",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0236.MoreNarrowScope",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessNumberGame",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0239.GuessNumberGame",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessNumberGame2",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0239.GuessNumberGame2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0239ver2.Main",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch HpChecker",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0240.HpChecker",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ListPrinter",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0240.ListPrinter",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch NumberAdder",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0240.NumberAdder",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RecursiveStack",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0241.RecursiveStack",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayUpdater",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0242.ArrayUpdater",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessCardGame",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0244.GuessCardGame",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessCardGame2",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0244.GuessCardGame2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch GuessCardGame2(1)",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0247.GuessCardGame2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RockPaperScissor5",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0249.RockPaperScissor5",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RockPaperScissorsGame1",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0249.RockPaperScissorsGame1",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RockPaperScissorsGame2",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0249.RockPaperScissorsGame2",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RockPaperScissorsGame3",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0249.RockPaperScissorsGame3",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch RockPaperScissorsGame4",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0249.RockPaperScissorsGame4",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch FoolishMethodOwner",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0250.FoolishMethodOwner",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch BlackJack",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0252.BlackJack",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(1)",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0254.Main",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch HitAndBlow",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0255.HitAndBlow",
+            "projectName": "src_4c4f1561"
+        },
+        {
+            "type": "java",
+            "name": "Launch HitAndBlow2",
+            "request": "launch",
+            "mainClass": "com.kajiH.manual.practice0255.HitAndBlow2",
+            "projectName": "src_4c4f1561"
+        }
+    ]
+}
