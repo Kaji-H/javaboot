@@ -14,7 +14,9 @@ public class Main {
 
         iland.spend();
 
-        iland.result();
+        iland.showEnding();
+
+        iland.showLog();
 
         STDIN.close();
     }
