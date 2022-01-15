@@ -9,6 +9,15 @@ public enum FoodList {
     COLORFUL_FRUIT("カラフルフルーツ", 5, 30, "種が喉に詰まった…"),
     ;
 
+    private String name;
+    private int amountOfRexovery;
+    private int dangerLevel;
+    private String caouseOfDeath;
+
     private FoodList(String name, int amountOfRecovery, int dangerLevel, String causeOfDeath) {
+        this.name = name;
+        this.amountOfRexovery = amountOfRecovery;
+        this.dangerLevel = dangerLevel;
+        this.caouseOfDeath = caouseOfDeath;
     }
 }
