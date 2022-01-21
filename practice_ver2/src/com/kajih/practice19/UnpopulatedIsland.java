@@ -71,7 +71,7 @@ public class UnpopulatedIsland {
 
     public void showEnding() {
         if (this.player.isDeath()) {
-            String causeOfDeath = this.foodList.get(this.days - 1).getCauseOfDeath();
+            String causeOfDeath = this.player.getCauseOfDeath();
 
             System.out.printf(MESSAGE.BAD_END, causeOfDeath);
             System.out.printf(MESSAGE.NEWLINE);
@@ -138,7 +138,7 @@ public class UnpopulatedIsland {
             return;
         }
 
-        this.player.getFoodPoisoning();
+        this.player.sufferFromFoodPoisoning(food.getCauseOfDeath());
         return;
     }
 

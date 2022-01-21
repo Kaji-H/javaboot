@@ -35,6 +35,9 @@ public class Config {
         public final int DECREASED_HP_WHEN_HUNGRY = 10;
 
         public final int MAX_RAND_VALUE = 100;
+
+        public final String INIT_STRING = "";
+        public final String CAUSE_OF_DEATH_BY_HUNGER = "空腹によって死んでしまった...";
     }
 
     public class GameConfig {

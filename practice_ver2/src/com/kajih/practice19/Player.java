@@ -28,16 +28,13 @@ public class Player {
         return this.causeOfDeath;
     }
 
-    public void setCauseOfDeath(String text) {
-        this.causeOfDeath = text;
-    }
-
     public void recoverHp(int amountOfRecovery) {
         this.hp += amountOfRecovery;
     }
 
     public void decreseHpWhenHungry() {
         this.hp -= CONFIG.DECREASED_HP_WHEN_HUNGRY;
+        this.causeOfDeath = CONFIG.CAUSE_OF_DEATH_BY_HUNGER;
     }
 
     public String input() {
@@ -48,8 +45,9 @@ public class Player {
         return dangerLevel < RAND.nextInt(CONFIG.MAX_RAND_VALUE);
     }
 
-    public void getFoodPoisoning() {
+    public void sufferFromFoodPoisoning(String causeOfDeath) {
         this.hp = CONFIG.MIN_HP;
+        this.causeOfDeath = causeOfDeath;
     }
 
     public boolean isDeath() {
