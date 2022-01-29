@@ -39,85 +39,30 @@ public class UnpopulatedIsland {
 
         while (!doAction(select)) {
 
-            showEatOrNot();
+            showEatOrNotQuestionAndChoices();
             select = selectPlayer();
 
             if (hasSelectedHint(select)) {
+                FoodList nextFood = this.foodList.get(this.days);
+                showNextFoodData(nextFood);
 
-                hint.use();
-                hint.pauseCounting();
+                this.hint.use();
+                this.hint.pauseCounting();
                 continue;
             }
 
             playEatAction(select, food);
         }
 
-        if (this.player.isDeath()) {
+        if (isEscapeIslandOrDie()) {
             return;
         }
 
         this.days++;
-
-        if (isClear(this.days)) {
-            return;
-        }
-
-        hint.resumeCounting();
+        this.hint.resumeCounting();
 
         spend();
         return;
-    }
-
-    private int selectPlayer() {
-        String input = this.player.input();
-
-        int num = Integer.parseInt(input);
-
-        return num;
-    }
-
-    private void playEatAction(int select, FoodList food) {
-    }
-
-    private void showEatOrNot() {
-        System.out.printf(Message.EAT_OR_NOT);
-
-        int choicesNum = GameConfig.MAX_CHOICES;
-
-        if (!hint.canUse()) {
-            choicesNum--;
-        }
-
-        for (int i = GameConfig.MIN_CHOICES; i <= choicesNum; i++) {
-            choices.showChoices(i);
-        }
-
-    }
-
-    private void showDay(int day) {
-        System.out.printf(Message.DATE, day);
-    }
-
-    private void showSituation(FoodList food, int hp) {
-        System.out.printf(Message.FOOD_DATA,
-                food.getName(),
-                food.getAmountOfRexovery(),
-                food.getDangerLevel());
-
-        System.out.printf(Message.PLAYERS_HP, hp);
-    }
-
-    private boolean hasSelectedHint(int select) {
-        return select == choices.getSelectNum(Message.HINT);
-    }
-
-    private boolean doAction(int select) {
-        return select == choices.getSelectNum(Message.EAT) ||
-                select == choices.getSelectNum(Message.NOT_EAT);
-    }
-
-    private boolean isClear(int day) {
-        return day > GameConfig.MAX_DAYS;
     }
 
     public void showEnding() {
@@ -136,6 +81,135 @@ public class UnpopulatedIsland {
             System.out.println(list.get(i).getName());
         }
         return list;
+    }
+
+    private int selectPlayer() {
+        String input = this.player.input();
+
+        int num = validate(input);
+
+        return num;
+    }
+
+    private int validate(String input) {
+        if (!isNum(input)) {
+            showWarningToInputNonNumeric();
+            return selectPlayer();
+        }
+
+        int num = Integer.parseInt(input);
+
+        if (!isChoicesRange(num)) {
+            showWarningToInputOutOfChoices();
+            return selectPlayer();
+        }
+        return num;
+    }
+
+    private void playEatAction(int select, FoodList food) {
+        if (hasSelectedNotEat(select)) {
+            player.decreseHpWhenHungry();
+            return;
+        }
+
+        if (this.player.canEat(food.getDangerLevel())) {
+            this.player.recoverHp(food.getAmountOfRexovery());
+            return;
+        }
+
+        this.player.sufferFromFoodPoisoning(food.getCauseOfDeath());
+        return;
+    }
+
+    private void showEatOrNotQuestionAndChoices() {
+        System.out.printf(Message.EAT_OR_NOT);
+
+        int choicesNum = calChoicesNum();
+
+        for (int i = GameConfig.MIN_CHOICES; i <= choicesNum; i++) {
+            choices.showChoices(i);
+        }
+
+        System.out.printf(Message.NEWLINE);
+    }
+
+    private int calChoicesNum() {
+        int num = choices.getChoicesLength();
+
+        if (!hint.canUse()) {
+            num--;
+        }
+
+        return num;
+    }
+
+    private void showDay(int day) {
+        System.out.printf(Message.DATE, day);
+    }
+
+    private void showSituation(FoodList food, int hp) {
+        showFoodData(food);
+
+        System.out.printf(Message.PLAYERS_HP, hp);
+    }
+
+    private void showFoodData(FoodList food) {
+        System.out.printf(Message.FOOD_DATA,
+                food.getName(),
+                food.getAmountOfRexovery(),
+                food.getDangerLevel());
+    }
+
+    private void showNextFoodData(FoodList food) {
+        System.out.printf(Message.TOMMOROW_FOOD);
+
+        showFoodData(food);
+
+        System.out.printf(Message.NEWLINE);
+    }
+
+    private void showWarningToInputNonNumeric() {
+        System.out.printf(Message.WARREING_TO_INPUT_NON_NUMERIC);
+    }
+
+    private void showWarningToInputOutOfChoices() {
+        System.out.printf(Message.WARRNING_TO_INPUT_OUT_OF_CHOICES);
+    }
+
+    private boolean hasSelectedHint(int select) {
+        return select == choices.getSelectNum(Message.HINT);
+    }
+
+    private boolean hasSelectedNotEat(int select) {
+        return select == choices.getSelectNum(Message.NOT_EAT);
+    }
+
+    private boolean doAction(int select) {
+        return select == choices.getSelectNum(Message.EAT) ||
+                select == choices.getSelectNum(Message.NOT_EAT);
+    }
+
+    private boolean isClear(int day) {
+        return day >= GameConfig.MAX_DAYS;
+    }
+
+    private boolean isNum(String select) {
+        try {
+            Integer.parseInt(select);
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isChoicesRange(int num) {
+        int maxChoices = calChoicesNum();
+
+        return num <= maxChoices && num >= GameConfig.MIN_CHOICES;
+    }
+
+    private boolean isEscapeIslandOrDie() {
+        return this.player.isDeath() || isClear(this.days);
     }
 
 }

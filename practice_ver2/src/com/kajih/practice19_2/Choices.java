@@ -29,4 +29,8 @@ public class Choices {
     public int getSelectNum(String text) {
         return choices.indexOf(text) + 1;
     }
+
+    public int getChoicesLength() {
+        return choices.size();
+    }
 }
