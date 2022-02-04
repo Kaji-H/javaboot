@@ -10,16 +10,21 @@ public class Config {
         public static final String NEWLINE = "\n";
         public static final String DATE = "~ %d 日目 ~\n";
         public static final String FOOD_DATA = "%s   回復量 %d  危険度 %d ％\n";
-        public static final String PLAYERS_HP = "あなたの体力は %d です。";
+        public static final String PLAYERS_HP = "あなたの体力は %d です。\n";
         public static final String EAT_OR_NOT = "食べますか？食べませんか？\n";
         public static final String CHOICES = "%d.%s  ";
         public static final String WARREING_TO_INPUT_NON_NUMERIC = "数字を入力してください\n";
         public static final String WARRNING_TO_INPUT_OUT_OF_CHOICES = "選択肢の数字を入力してください\n";
         public static final String TOMMOROW_FOOD = "明日の食べ物は...\n";
+        public static final String ENDING = "おめでとう!!\nあなたは %d 日間生き残り、無事に無人島から帰還できました\n";
 
         public static final String EAT = "食べる";
         public static final String NOT_EAT = "食べない";
         public static final String HINT = "ヒント";
+
+        public static final String STANDARD_FORM_OF_RECORD = "%d 日目: HP %d  食べ物 %s  危険度 %d ％ アクション %s\n";
+        public static final String LOG_START = "~ ログ ~\n";
+        public static final String LOG_END = "~ ~ ~ ~\n";
     }
 
     public class PlayersConfig {

@@ -30,6 +30,10 @@ public class Choices {
         return choices.indexOf(text) + 1;
     }
 
+    public String getChoiceName(int selectNum) {
+        return choices.get(selectNum - 1);
+    }
+
     public int getChoicesLength() {
         return choices.size();
     }

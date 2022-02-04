@@ -14,6 +14,7 @@ public class UnpopulatedIsland {
     private Player player;
     private HintCountMng hint;
     private Choices choices;
+    private Log log;
     private int days;
     private List<FoodList> foodList = new ArrayList<>();
 
@@ -21,12 +22,13 @@ public class UnpopulatedIsland {
         this.player = player;
         this.hint = new HintCountMng(GameConfig.HINT_NUM);
         this.choices = new Choices(Message.EAT, Message.NOT_EAT, Message.HINT);
+        this.log = new Log();
         this.days = GameConfig.INIT_DAYS;
         this.foodList = initFoodList();
     }
 
     public void showPrologue() {
-
+        System.out.printf(Message.PROLOGUE, GameConfig.MAX_DAYS);
     }
 
     public void spend() {
@@ -51,6 +53,11 @@ public class UnpopulatedIsland {
                 continue;
             }
 
+            this.log.setRecordOfDay(this.days,
+                    this.player.getHp(),
+                    food.getName(),
+                    food.getDangerLevel(),
+                    this.choices.getChoiceName(select));
             playEatAction(select, food);
         }
 
@@ -66,9 +73,16 @@ public class UnpopulatedIsland {
     }
 
     public void showEnding() {
+        if (player.isDeath()) {
+            System.out.println(player.getCauseOfDeath());
+            return;
+        }
+
+        System.out.printf(Message.ENDING, GameConfig.MAX_DAYS);
     }
 
     public void showLog() {
+        this.log.show();
     }
 
     private List<FoodList> initFoodList() {
