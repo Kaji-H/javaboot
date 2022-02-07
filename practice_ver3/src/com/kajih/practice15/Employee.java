@@ -14,7 +14,7 @@ public class Employee {
     }
 
     public Employee(String name, String emailAdd, String add) {
-        this.id = this.countId;
+        this.id = countId;
         this.name = name;
         this.emailAdd = emailAdd;
         this.add = add;
@@ -31,6 +31,10 @@ public class Employee {
             if (emp.emailAdd.isEmpty()) {
                 System.out.printf("従業員ID %d にメールアドレスが設定されていません.\n", emp.id);
                 return;
+            }
+
+            if (emp.add.isEmpty()) {
+
             }
 
             System.out.printf("従業員ID %d は正しく設定されています.\n", emp.id);

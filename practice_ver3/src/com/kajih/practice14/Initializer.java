@@ -23,6 +23,6 @@ public class Initializer {
 
     public void showCounterValue() {
         System.out.printf("[id] %d, [name] %s, [staticCounter] %d, [instanceCounter] %d\n", this.id, this.name,
-                this.staticCounter, this.instanceCounter);
+                staticCounter, this.instanceCounter);
     }
 }
