@@ -1,8 +1,12 @@
-package com.kajih.practice22;
+package com.kajih.practice22.monsters;
+
+import java.util.Random;
 
 import com.kajih.practice22.config.MonsterType;
 
 public class Monster {
+
+    private Random RAND = new Random();
 
     private String name;
     private int hp;
@@ -18,6 +22,10 @@ public class Monster {
         this.def = monster.getDef();
         this.appearanceRate = monster.getAppearanceRate();
         this.captureRate = monster.getCaptureRate();
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public int getAppearanceRate() {
@@ -38,7 +46,12 @@ public class Monster {
         return score;
     }
 
-    public boolean canCaptured(int percentage) {
+    public boolean canCaptured(int captureRateInBall) {
+        int sumCaptureRate = this.captureRate + captureRateInBall;
+
+        if (sumCaptureRate < RAND.nextInt(100)) {
+            return false;
+        }
 
         return true;
     }

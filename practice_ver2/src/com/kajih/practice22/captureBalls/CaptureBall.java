@@ -1,13 +1,15 @@
 package com.kajih.practice22.captureBalls;
 
+import com.kajih.practice22.config.BallType;
+
 public class CaptureBall {
     private String name;
     private int correctValue;
     private int count;
 
-    CaptureBall(String name, int correctValue, int count) {
-        this.name = name;
-        this.correctValue = correctValue;
+    CaptureBall(BallType ball, int count) {
+        this.name = ball.getName();
+        this.correctValue = ball.getCaptureRate();
         this.count = count;
     }
 

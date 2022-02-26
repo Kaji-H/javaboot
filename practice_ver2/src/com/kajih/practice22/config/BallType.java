@@ -7,11 +7,25 @@ public enum BallType {
 
     private int id;
     private int captureRate;
-    private String name;
+
+    public int getId() {
+        return id;
+    }
 
     BallType(int id, String name, int captureRate) {
         this.id = id;
         this.name = name;
         this.captureRate = captureRate;
     }
+
+    public int getCaptureRate() {
+        return captureRate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private String name;
+
 }
