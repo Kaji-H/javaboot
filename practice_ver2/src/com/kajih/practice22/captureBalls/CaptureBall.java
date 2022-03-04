@@ -4,28 +4,28 @@ import com.kajih.practice22.config.BallType;
 
 public class CaptureBall {
     private String name;
-    private int correctValue;
-    private int count;
+    private int successRate;
+    private int num;
 
     CaptureBall(BallType ball, int count) {
         this.name = ball.getName();
-        this.correctValue = ball.getCaptureRate();
-        this.count = count;
+        this.successRate = ball.getCaptureSuccessRate();
+        this.num = count;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public int getCorrectValue() {
-        return this.correctValue;
+    public int getSuccessRate() {
+        return this.successRate;
     }
 
-    public int getCount() {
-        return this.count;
+    public int getNum() {
+        return this.num;
     }
 
     public void use() {
-        this.count--;
+        this.num--;
     }
 }

@@ -2,9 +2,9 @@ package com.kajih.practice22;
 
 import java.util.List;
 
-import com.kajih.practice22.config.MonsterType;
 import com.kajih.practice22.monsters.Monster;
 import com.kajih.practice22.monsters.MonstersGroup;
+import com.kajih.practice22.config.ActionType;
 
 public class CatchingGameField {
 
@@ -21,19 +21,44 @@ public class CatchingGameField {
     }
 
     public void play() {
-        Monster monster = monsters.appearance();
-        appearanceCounter++;
+        Monster monster = this.monsters.appearance();
+        this.appearanceCounter++;
 
         System.out.printf("%s が現れた\n", monster.getName());
         monster.showStatus();
 
-        player.CatchOrRelease(monster);
+        while (!isGone(monster)) {
 
-        if (appearanceCounter < 10) {
+            this.player.SelectCatchOrRelease();
+
+            if (player.getActionPattern() == ActionType.RELEASE) {
+                System.out.printf("%s を見逃した\n\n", monster.getName());
+                break;
+            }
+
+            if (!monster.canCaptured(player.throwCaptureBall())) {
+                System.out.printf("ああ、%s がボールから出てきた\n", monster.getName());
+                continue;
+            }
+
+            player.catchMonster(monster);
+
+            System.out.printf("%s を捕まえた\n\n", monster.getName());
+
+            monster = null;
+        }
+
+        System.out.printf("\n");
+
+        if (appearanceCounter < 3 && player.hasBall()) {
             play();
         }
 
         return;
+    }
+
+    private boolean isGone(Monster monster) {
+        return monster == null;
     }
 
     public void result() {
@@ -41,7 +66,14 @@ public class CatchingGameField {
 
         int score = calScore(catchMonsters);
 
-        System.out.printf("%d 匹捕獲 : スコア %d 点", catchMonsters.size(), score);
+        System.out.printf("~ 結果 ~\n");
+        System.out.printf("捕獲 %d 匹 : スコア %d 点\n", catchMonsters.size(), score);
+        System.out.printf("\n");
+        for (Monster monster : player.getCatchMonstersList()) {
+            monster.showStatus();
+        }
+
+        player.goHome();
     }
 
     private int calScore(List<Monster> catchMonsters) {

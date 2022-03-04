@@ -6,26 +6,25 @@ public enum BallType {
     MIRACLE_BALL(2, "ミラクル捕獲玉", 50);
 
     private int id;
-    private int captureRate;
+    private int captureSuccessRate;
+    private String name;
+
+    BallType(int id, String name, int captureRate) {
+        this.id = id;
+        this.name = name;
+        this.captureSuccessRate = captureRate;
+    }
 
     public int getId() {
         return id;
     }
 
-    BallType(int id, String name, int captureRate) {
-        this.id = id;
-        this.name = name;
-        this.captureRate = captureRate;
-    }
-
-    public int getCaptureRate() {
-        return captureRate;
+    public int getCaptureSuccessRate() {
+        return this.captureSuccessRate;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
-
-    private String name;
 
 }

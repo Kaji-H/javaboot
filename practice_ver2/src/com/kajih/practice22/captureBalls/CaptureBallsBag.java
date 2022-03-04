@@ -16,4 +16,19 @@ public class CaptureBallsBag {
         balls.add(new CaptureBall(BallType.MIRACLE_BALL, BallConfig.INIT_MIRACLE_BALL_NUM));
     }
 
+    public List<CaptureBall> getBalls() {
+        return this.balls;
+    }
+
+    public int getSuccessRateOfCaptureBall(int index) {
+        return balls.get(index).getSuccessRate();
+    }
+
+    public void useBall(int index) {
+        balls.get(index).use();
+
+        if (balls.get(index).getNum() == 0) {
+            balls.remove(index);
+        }
+    }
 }
