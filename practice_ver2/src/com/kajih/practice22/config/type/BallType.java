@@ -1,4 +1,4 @@
-package com.kajih.practice22.config;
+package com.kajih.practice22.config.type;
 
 public enum BallType {
     NORMAL_BALL(0, "ノーマル捕獲玉", 0),

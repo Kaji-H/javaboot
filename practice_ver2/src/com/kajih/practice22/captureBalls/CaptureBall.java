@@ -1,6 +1,6 @@
 package com.kajih.practice22.captureBalls;
 
-import com.kajih.practice22.config.BallType;
+import com.kajih.practice22.config.type.BallType;
 
 public class CaptureBall {
     private String name;

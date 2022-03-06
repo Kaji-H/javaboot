@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.kajih.practice22.config.MonsterType;
+import com.kajih.practice22.config.type.MonsterType;
 
 public class MonstersGroup {
 

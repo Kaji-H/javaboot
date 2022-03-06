@@ -1,4 +1,4 @@
-package com.kajih.practice22.config;
+package com.kajih.practice22.config.type;
 
 public enum ActionType {
     CATCH(1, "捕まえる"),

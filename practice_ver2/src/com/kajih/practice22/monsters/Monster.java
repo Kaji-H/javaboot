@@ -2,7 +2,7 @@ package com.kajih.practice22.monsters;
 
 import java.util.Random;
 
-import com.kajih.practice22.config.MonsterType;
+import com.kajih.practice22.config.type.MonsterType;
 
 public class Monster {
 

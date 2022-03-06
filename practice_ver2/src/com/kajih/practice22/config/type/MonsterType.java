@@ -1,4 +1,4 @@
-package com.kajih.practice22.config;
+package com.kajih.practice22.config.type;
 
 public enum MonsterType {
     ZACOMON("ザコモン", 30, 20, 20, 30, 72),

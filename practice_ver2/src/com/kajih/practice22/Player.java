@@ -3,10 +3,11 @@ package com.kajih.practice22;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kajih.play.Inputter;
+import com.kajih.practice22.input.Inputter;
 import com.kajih.practice22.captureBalls.CaptureBall;
 import com.kajih.practice22.captureBalls.CaptureBallsBag;
-import com.kajih.practice22.config.ActionType;
+import com.kajih.practice22.config.Message;
+import com.kajih.practice22.config.type.ActionType;
 import com.kajih.practice22.monsters.Monster;
 
 public class Player {
@@ -55,11 +56,11 @@ public class Player {
         int choicesNum = 0;
 
         for (CaptureBall ball : this.balls.getBalls()) {
-            System.out.printf("%d: %s %d 個\n", choicesNum, ball.getName(), ball.getNum());
+            System.out.printf(Message.CHOICES_FOR_BALL, choicesNum, ball.getName(), ball.getNum());
             choicesNum++;
         }
 
-        System.out.printf("%d: 見逃す\n", choicesNum);
+        System.out.printf(Message.CHOICES_FOR_RELEASE, choicesNum);
     }
 
     private void setAction(int selectNum) {

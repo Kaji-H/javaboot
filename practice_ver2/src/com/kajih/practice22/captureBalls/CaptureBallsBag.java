@@ -3,17 +3,17 @@ package com.kajih.practice22.captureBalls;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.kajih.practice22.config.BallConfig;
-import com.kajih.practice22.config.BallType;
+import com.kajih.practice22.config.InitConfig.VariousBallsNum;
+import com.kajih.practice22.config.type.BallType;
 
 public class CaptureBallsBag {
 
     List<CaptureBall> balls = new ArrayList<>();
 
     public CaptureBallsBag() {
-        balls.add(new CaptureBall(BallType.NORMAL_BALL, BallConfig.INIT_NORMAL_BALL_NUM));
-        balls.add(new CaptureBall(BallType.SUPER_BALL, BallConfig.INIT_SUPER_BALL_NUM));
-        balls.add(new CaptureBall(BallType.MIRACLE_BALL, BallConfig.INIT_MIRACLE_BALL_NUM));
+        balls.add(new CaptureBall(BallType.NORMAL_BALL, VariousBallsNum.NORMAL_BALL));
+        balls.add(new CaptureBall(BallType.SUPER_BALL, VariousBallsNum.SUPER_BALL));
+        balls.add(new CaptureBall(BallType.MIRACLE_BALL, VariousBallsNum.MIRACLE_BALL));
     }
 
     public List<CaptureBall> getBalls() {
@@ -27,8 +27,12 @@ public class CaptureBallsBag {
     public void useBall(int index) {
         balls.get(index).use();
 
-        if (balls.get(index).getNum() == 0) {
+        if (!hasBall(balls.get(index))) {
             balls.remove(index);
         }
+    }
+
+    private boolean hasBall(CaptureBall ball) {
+        return ball.getNum() > 0;
     }
 }
