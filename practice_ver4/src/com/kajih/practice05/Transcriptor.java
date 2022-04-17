@@ -14,8 +14,7 @@ public class Transcriptor {
     public static void main(String[] args) {
 
         try (Scanner scanner = new Scanner(new File(TARGET_FILE_RELATIVE_PATH_FOR_READING));
-                PrintWriter writer = new PrintWriter(
-                        new File(TARGET_FILE_RELATIVE_PATH_FOR_WRITING))) {
+                PrintWriter writer = new PrintWriter(new File(TARGET_FILE_RELATIVE_PATH_FOR_WRITING))) {
 
             while (scanner.hasNext()) {
                 writer.print(scanner.nextLine());
