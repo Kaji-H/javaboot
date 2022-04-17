@@ -14,8 +14,8 @@ public class Bird {
         try {
             isEmptyName = this.name.equals("");
         } catch (NullPointerException e) {
-            // throw new AppException("UnecpectedError: 想定外の値が設定されています.");
-            throw new AppException(e);
+            throw new AppException("UnecpectedError: 想定外の値が設定されています.");
+            // throw new AppException(e);
         }
         return isEmptyName;
     }
