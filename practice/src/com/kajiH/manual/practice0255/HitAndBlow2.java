@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class HitAndBlow2 {
 
     private static final String[] CHOICES = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-    private static final int CORRECT_DIGIT = 5;
+    private static final int CORRECT_DIGIT = 10;
     private static final int MAX_RESPONSES_NUM = 10;
     private static final int TIMING_OF_HINTS = 3;
 

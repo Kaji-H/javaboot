@@ -1,5 +1,11 @@
 package com.kajih.practice20;
 
+/**
+ * javadocのためのサンプルクラス
+ * @author kaji hiroaki
+ * @version 1.0
+ */
+
 public class Business {
     public static void main(String[] args) {
         Division division = new Division()
