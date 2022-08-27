@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 public class StringsSplitter {
 
+    private static final String STR_EMPTY = "";
     private static final String PUNCTUATION = "、";
     private static final String PERIOD = "。";
     private static final String NEW_LINE = "¥n";
@@ -29,12 +30,46 @@ public class StringsSplitter {
         }
     }
 
+    private static List<String> splitWithLineBreakCode(String string) {
+        List<String> lines = new ArrayList<>();
+        Pattern p = Pattern.compile(NEW_LINE);
+
+        for (String line : p.split(string)) {
+            lines.add(line);
+        }
+
+        return lines;
+    }
+
+    private static List<String> splitWithLineBreakCodeAndPeriod(String string) {
+        String remodelingStr = deleteOneAfterPeriod(string, NEW_LINE);
+        remodelingStr = addOneAfterPeriod(remodelingStr, NEW_LINE);
+
+        List<String> lines = splitWithLineBreakCode(remodelingStr);
+
+        return lines;
+    }
+
+    private static List<String> splitFixedLengthWithLineBreakCodeAndPeriod(String string, int lineBreakPosition) {
+        List<String> tempLists = splitWithLineBreakCode(string);
+        List<String> lists = new ArrayList<>();
+        String stringWithNewLine = STR_EMPTY;
+
+        for (String str : tempLists) {
+            stringWithNewLine += addNewLineToFixedLength(str, lineBreakPosition);
+        }
+
+        lists = splitWithLineBreakCode(stringWithNewLine);
+
+        return lists;
+    }
+
     private static List<String> splitFixedLengthJaHyphenationWithLineBreakCodeAndPeriod(String string,
             int lineBreakPosition) {
         List<String> tempLists = splitWithLineBreakCode(string);
         List<String> lists = new ArrayList<>();
 
-        String stringWithNewLine = "";
+        String stringWithNewLine = STR_EMPTY;
 
         for (String str : tempLists) {
             stringWithNewLine += addNewLineToFixedLengthJaHyphenation(str, lineBreakPosition);
@@ -77,20 +112,6 @@ public class StringsSplitter {
         return strWithNewLine;
     }
 
-    private static List<String> splitFixedLengthWithLineBreakCodeAndPeriod(String string, int lineBreakPosition) {
-        List<String> tempLists = splitWithLineBreakCode(string);
-        List<String> lists = new ArrayList<>();
-        String stringWithNewLine = "";
-
-        for (String str : tempLists) {
-            stringWithNewLine += addNewLineToFixedLength(str, lineBreakPosition);
-        }
-
-        lists = splitWithLineBreakCode(stringWithNewLine);
-
-        return lists;
-    }
-
     private static String addNewLineToFixedLength(String string, int lineBreakPosition) {
         StringBuilder build = new StringBuilder();
         build.append(string);
@@ -114,23 +135,6 @@ public class StringsSplitter {
         return strWithNewLine;
     }
 
-    private static boolean isSame(int lineBreakPosition, int count) {
-        return count == lineBreakPosition;
-    }
-
-    private static boolean isInRange(int strNum, int countElements) {
-        return strNum > countElements;
-    }
-
-    private static List<String> splitWithLineBreakCodeAndPeriod(String string) {
-        String remodelingStr = deleteOneAfterPeriod(string, NEW_LINE);
-        remodelingStr = addOneAfterPeriod(remodelingStr, NEW_LINE);
-
-        List<String> lines = splitWithLineBreakCode(remodelingStr);
-
-        return lines;
-    }
-
     private static String addOneAfterPeriod(String string, String newLine) {
         return string.replaceAll(PERIOD, PERIOD + newLine);
     }
@@ -139,14 +143,12 @@ public class StringsSplitter {
         return string.replaceAll(PERIOD + newLine, PERIOD);
     }
 
-    private static List<String> splitWithLineBreakCode(String string) {
-        List<String> lines = new ArrayList<>();
-        Pattern p = Pattern.compile(NEW_LINE);
-
-        for (String line : p.split(string)) {
-            lines.add(line);
-        }
-
-        return lines;
+    private static boolean isSame(int lineBreakPosition, int count) {
+        return count == lineBreakPosition;
     }
+
+    private static boolean isInRange(int strNum, int countElements) {
+        return strNum > countElements;
+    }
+
 }
